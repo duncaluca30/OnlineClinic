@@ -163,6 +163,7 @@ namespace OnlineClinicClient.Forms
             this.addAppointmentBtn.Size = new System.Drawing.Size(120, 40);
             this.addAppointmentBtn.TabIndex = 1;
             this.addAppointmentBtn.Text = "Add Appointment";
+            this.addAppointmentBtn.Click += new System.EventHandler(this.addAppointmentBtn_Click);
             // 
             // rescheduleBtn
             // 
@@ -172,6 +173,7 @@ namespace OnlineClinicClient.Forms
             this.rescheduleBtn.Size = new System.Drawing.Size(120, 40);
             this.rescheduleBtn.TabIndex = 2;
             this.rescheduleBtn.Text = "Reschedule";
+            this.rescheduleBtn.Click += new System.EventHandler(this.rescheduleBtn_Click);
             // 
             // cancelAppointmentBtn
             // 
@@ -181,6 +183,7 @@ namespace OnlineClinicClient.Forms
             this.cancelAppointmentBtn.Size = new System.Drawing.Size(140, 40);
             this.cancelAppointmentBtn.TabIndex = 3;
             this.cancelAppointmentBtn.Text = "Cancel Appointment";
+            this.cancelAppointmentBtn.Click += new System.EventHandler(this.cancelAppointmentBtn_Click);
             // 
             // doctorsTab
             // 
@@ -209,19 +212,22 @@ namespace OnlineClinicClient.Forms
             this.logoutBtn.Size = new System.Drawing.Size(1000, 30);
             this.logoutBtn.TabIndex = 1;
             this.logoutBtn.Text = "Logout";
-            //
+            // 
             // statusLabel
-            //
+            // 
             this.statusLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.statusLabel.Height = 24; // fixed height
-            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statusLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            this.statusLabel.Location = new System.Drawing.Point(0, 576);
+            this.statusLabel.Name = "statusLabel";
             this.statusLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Controls.Add(this.statusLabel);
+            this.statusLabel.Size = new System.Drawing.Size(1000, 24);
+            this.statusLabel.TabIndex = 0;
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ReceptionistForm
             // 
             this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.tabControl);
             this.Name = "ReceptionistForm";

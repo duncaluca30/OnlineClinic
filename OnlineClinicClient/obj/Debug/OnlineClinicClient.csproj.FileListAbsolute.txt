@@ -69,3 +69,4 @@ C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineCl.946BA45C.Up
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.exe
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.pdb
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddPatientForm.resources
+C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddAppointmentForm.resources

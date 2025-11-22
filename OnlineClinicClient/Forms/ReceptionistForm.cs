@@ -48,16 +48,7 @@ namespace OnlineClinicClient.Forms
         {
             var appointments = await httpClient.GetFromJsonAsync<List<Appointment>>("/api/appointments");
 
-            var appointmentView = appointments.Select(a => new
-            {
-                AppointmentId = a.Id,
-                PatientName = a.Patient.Name,
-                DoctorName = a.Doctor.Name,
-                Date = a.AppointmentDate,
-                Price = a.Price
-            }).ToList();
-
-            appointmentsGrid.DataSource = appointmentView;
+            appointmentsGrid.DataSource = appointments;
         }
 
         private void addPatientBtn_Click(object sender, EventArgs e)
@@ -117,6 +108,74 @@ namespace OnlineClinicClient.Forms
             statusLabel.ForeColor = color;
             await Task.Delay(3000); // show for 3 seconds
             statusLabel.Text = "";
+        }
+
+        private async void addAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            // Open the AddAppointmentForm
+            var form = new AddAppointmentForm(httpClient);
+            var result = form.ShowDialog();
+
+            // If the form was closed after saving, refresh appointments
+            if (result == DialogResult.OK)
+            {
+                await LoadAppointments();
+                statusLabel.Text = "Appointment added successfully!";
+                statusLabel.ForeColor = Color.DarkGreen;
+            }
+        }
+
+        private async void rescheduleBtn_Click(object sender, EventArgs e)
+        {
+            if (appointmentsGrid.SelectedRows.Count == 0)
+            {
+                statusLabel.Text = "Please select an appointment to reschedule.";
+                statusLabel.ForeColor = Color.DarkRed;
+                return;
+            }
+
+            var selectedAppointment = (Appointment)appointmentsGrid.SelectedRows[0].DataBoundItem;
+
+            var form = new AddAppointmentForm(httpClient, selectedAppointment); // overload constructor
+            form.ShowDialog();
+
+            await LoadAppointments(); // refresh grid after reschedule
+        }
+
+        private async void cancelAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            if (appointmentsGrid.SelectedRows.Count == 0)
+            {
+                statusLabel.Text = "Please select an appointment to cancel.";
+                statusLabel.ForeColor = Color.DarkRed;
+                return;
+            }
+
+            var selectedAppointment = (Appointment)appointmentsGrid.SelectedRows[0].DataBoundItem;
+
+            // Confirm cancellation
+            var confirm = MessageBox.Show(
+                $"Are you sure you want to cancel appointment #{selectedAppointment.Id}?",
+                "Confirm Cancel",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                var response = await httpClient.DeleteAsync($"/api/appointments/{selectedAppointment.Id}");
+                if (response.IsSuccessStatusCode)
+                {
+                    statusLabel.Text = "Appointment cancelled successfully!";
+                    statusLabel.ForeColor = Color.DarkGreen;
+                    await Task.Delay(2000);
+                    await LoadAppointments(); // refresh grid
+                }
+                else
+                {
+                    statusLabel.Text = "Failed to cancel appointment.";
+                    statusLabel.ForeColor = Color.DarkRed;
+                }
+            }
         }
     }
 }

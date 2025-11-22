@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddAppointmentForm.Designer.cs">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,7 @@
       <DependentUpon>ReceptionistForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\AppointmentDto.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\User.cs" />
@@ -121,6 +128,9 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\PatientService.cs" />
+    <EmbeddedResource Include="Forms\AddAppointmentForm.resx">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPatientForm.resx">
       <DependentUpon>AddPatientForm.cs</DependentUpon>
     </EmbeddedResource>

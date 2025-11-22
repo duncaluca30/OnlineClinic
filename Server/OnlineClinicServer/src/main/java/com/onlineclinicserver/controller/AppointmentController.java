@@ -1,13 +1,16 @@
 package com.onlineclinicserver.controller;
 
+import com.onlineclinicserver.dto.AppointmentDto;
 import com.onlineclinicserver.model.Appointment;
 import com.onlineclinicserver.model.Doctor;
 import com.onlineclinicserver.model.Patient;
 import com.onlineclinicserver.repository.AppointmentRepository;
 import com.onlineclinicserver.repository.DoctorRepository;
 import com.onlineclinicserver.repository.PatientRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.onlineclinicserver.dto.AppointmentRequest;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -36,27 +39,49 @@ public class AppointmentController {
     public Appointment getAppointmentById(@PathVariable Integer id) {
         return appointmentRepository.findById(id).orElse(null);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Appointment> updateAppointment(
+            @PathVariable Integer id,
+            @RequestBody AppointmentDto dto) {
+
+        Appointment existing = appointmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Appointment not found"));
+
+        Patient patient = patientRepository.findById(dto.getPatientId())
+                .orElseThrow(() -> new RuntimeException("Patient not found"));
+        Doctor doctor = doctorRepository.findById(dto.getDoctorId())
+                .orElseThrow(() -> new RuntimeException("Doctor not found"));
+
+        existing.setPatient(patient);
+        existing.setDoctor(doctor);
+        existing.setAppointmentDate(dto.getAppointmentDate());
+        existing.setPrice(dto.getPrice());
+
+        Appointment updated = appointmentRepository.save(existing);
+        return ResponseEntity.ok(updated);
+    }
 
     // --- Create Appointment using IDs ---
     @PostMapping
-    public Appointment createAppointment(@RequestBody AppointmentRequest request) {
-        Doctor doctor = doctorRepository.findById(request.getDoctor_id())
-                .orElseThrow(() -> new RuntimeException("Doctor not found"));
-        Patient patient = patientRepository.findById(request.getPatient_id())
+    public ResponseEntity<Appointment> createAppointment(@RequestBody AppointmentDto dto) {
+        Patient patient = patientRepository.findById(dto.getPatientId())
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
+        Doctor doctor = doctorRepository.findById(dto.getDoctorId())
+                .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
-        Appointment appointment = new Appointment(
-                doctor,
-                patient,
-                request.getAppointmentDate(),
-                request.getPrice()
-        );
+        Appointment appointment = new Appointment();
+        appointment.setPatient(patient);
+        appointment.setDoctor(doctor);
+        appointment.setAppointmentDate(dto.getAppointmentDate());
+        appointment.setPrice(dto.getPrice());
 
-        return appointmentRepository.save(appointment);
+        Appointment saved = appointmentRepository.save(appointment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAppointment(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteAppointment(@PathVariable Integer id) {
         appointmentRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
