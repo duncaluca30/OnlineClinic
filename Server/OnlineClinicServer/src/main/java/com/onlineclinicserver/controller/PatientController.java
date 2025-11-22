@@ -3,7 +3,8 @@ package com.onlineclinicserver.controller;
 import com.onlineclinicserver.model.Patient;
 import com.onlineclinicserver.repository.PatientRepository;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
@@ -27,8 +28,10 @@ public class PatientController {
     }
 
     @PostMapping
-    public Patient createPatient(@RequestBody Patient patient) {
-        return patientRepository.save(patient);
+    public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
+        patient.setId(null); // ensure it's treated as new
+        Patient saved = patientRepository.save(patient);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
@@ -43,7 +46,8 @@ public class PatientController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePatient(@PathVariable Integer id) {
+    public ResponseEntity<Void> deletePatient(@PathVariable Integer id) {
         patientRepository.deleteById(id);
+        return ResponseEntity.noContent().build(); // returns 204 No Content
     }
 }

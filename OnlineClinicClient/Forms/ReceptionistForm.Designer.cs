@@ -22,8 +22,6 @@ namespace OnlineClinicClient.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -42,12 +40,9 @@ namespace OnlineClinicClient.Forms
         private System.Windows.Forms.Button addAppointmentBtn;
         private System.Windows.Forms.Button rescheduleBtn;
         private System.Windows.Forms.Button cancelAppointmentBtn;
-
         private System.Windows.Forms.DataGridView doctorsGrid;
-
         private System.Windows.Forms.Button logoutBtn;
-
-
+        private System.Windows.Forms.Label statusLabel;
         private void InitializeComponent()
         {
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -64,6 +59,7 @@ namespace OnlineClinicClient.Forms
             this.doctorsTab = new System.Windows.Forms.TabPage();
             this.doctorsGrid = new System.Windows.Forms.DataGridView();
             this.logoutBtn = new System.Windows.Forms.Button();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.patientsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientsGrid)).BeginInit();
@@ -115,6 +111,7 @@ namespace OnlineClinicClient.Forms
             this.addPatientBtn.Size = new System.Drawing.Size(120, 40);
             this.addPatientBtn.TabIndex = 1;
             this.addPatientBtn.Text = "Add Patient";
+            this.addPatientBtn.Click += new System.EventHandler(this.addPatientBtn_Click);
             // 
             // editPatientBtn
             // 
@@ -124,6 +121,7 @@ namespace OnlineClinicClient.Forms
             this.editPatientBtn.Size = new System.Drawing.Size(120, 40);
             this.editPatientBtn.TabIndex = 2;
             this.editPatientBtn.Text = "Edit Patient";
+            this.editPatientBtn.Click += new System.EventHandler(this.editPatientBtn_Click);
             // 
             // deletePatientBtn
             // 
@@ -133,6 +131,7 @@ namespace OnlineClinicClient.Forms
             this.deletePatientBtn.Size = new System.Drawing.Size(120, 40);
             this.deletePatientBtn.TabIndex = 3;
             this.deletePatientBtn.Text = "Delete Patient";
+            this.deletePatientBtn.Click += new System.EventHandler(this.deletePatientBtn_Click);
             // 
             // appointmentsTab
             // 
@@ -210,6 +209,15 @@ namespace OnlineClinicClient.Forms
             this.logoutBtn.Size = new System.Drawing.Size(1000, 30);
             this.logoutBtn.TabIndex = 1;
             this.logoutBtn.Text = "Logout";
+            //
+            // statusLabel
+            //
+            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.statusLabel.Height = 24; // fixed height
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.statusLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            this.statusLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Controls.Add(this.statusLabel);
             // 
             // ReceptionistForm
             // 
@@ -228,8 +236,5 @@ namespace OnlineClinicClient.Forms
             this.ResumeLayout(false);
 
         }
-
-
-        #endregion
     }
 }

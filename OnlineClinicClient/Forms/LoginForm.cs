@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +32,8 @@ namespace OnlineClinicClient
 
             if (user != null)
             {
-                MessageBox.Show($"Welcome {user.Username}, role: {user.Role}");
+                await ShowStatusMessage("Login successful!", Color.DarkGreen);
+                await Task.Delay(2000);
 
                 // Role-based navigation
                 switch (user.Role.ToLower())
@@ -53,16 +55,18 @@ namespace OnlineClinicClient
             }
             else
             {
-                MessageBox.Show("Invalid username or password",
-                                "Login Failed",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                await ShowStatusMessage("Login failed!", Color.DarkRed);
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+        private async Task ShowStatusMessage(string message, Color color)
+        {
+            statusLabel.Text = message;
+            statusLabel.ForeColor = color;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace OnlineClinicClient
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace OnlineClinicClient
 {
     partial class LoginForm
     {
@@ -20,12 +23,16 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Label statusLabel;
         private void InitializeComponent()
         {
             this.btnLogin = new System.Windows.Forms.Button();
@@ -33,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -88,11 +96,20 @@
             this.txtPass.TabIndex = 4;
             this.txtPass.UseSystemPasswordChar = true;
             // 
+            // statusLabel
+            // 
+            this.statusLabel.Location = new System.Drawing.Point(50, 363);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(180, 30);
+            this.statusLabel.TabIndex = 0;
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 398);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -106,14 +123,6 @@
             this.PerformLayout();
 
         }
-
-        #endregion
-
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPass;
     }
 }
 

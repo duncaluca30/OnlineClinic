@@ -1,82 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\",
+  "WorkspaceRootPath": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\scd proiect\\onlineclinicclient\\forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\scd proiect\\onlineclinicclient\\forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\scd proiect\\onlineclinicclient\\forms\\receptionistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\receptionistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\scd proiect\\onlineclinicclient\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\onlineclinic\\onlineclinicclient\\forms\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:Forms\\LoginForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\onlineclinic\\onlineclinicclient\\forms\\addpatientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\addpatientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:Forms\\ReceptionistForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|c:\\facultate_luca\\onlineclinic\\onlineclinicclient\\forms\\receptionistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\receptionistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:forms\\receptionistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\PatientService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:Services\\PatientService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\DoctorService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:Services\\DoctorService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC4E4ED3-3F3C-40DC-8CD0-4824E1A795A4}|OnlineClinicClient.csproj|solutionrelative:Services\\AuthService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 283,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReceptionistForm.Designer.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.Designer.cs",
-              "RelativeDocumentMoniker": "Forms\\ReceptionistForm.Designer.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.Designer.cs",
-              "RelativeToolTip": "Forms\\ReceptionistForm.Designer.cs",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAYwNEAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T16:04:54.465Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ReceptionistForm.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
               "RelativeDocumentMoniker": "Forms\\ReceptionistForm.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
               "RelativeToolTip": "Forms\\ReceptionistForm.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAIA6wCQAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAG0AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-14T16:05:35.235Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "ReceptionistForm.cs [Design]",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.cs",
               "RelativeDocumentMoniker": "Forms\\ReceptionistForm.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\ReceptionistForm.cs [Design]",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.cs [Design]",
               "RelativeToolTip": "Forms\\ReceptionistForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-14T15:04:17.611Z",
@@ -84,67 +79,121 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "LoginForm.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\LoginForm.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.cs",
               "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\LoginForm.cs",
-              "RelativeToolTip": "Forms\\LoginForm.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAD4v0AAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.cs*",
+              "RelativeToolTip": "Forms\\LoginForm.cs*",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwCMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-14T15:01:40.087Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\LoginForm.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.cs",
               "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Forms\\LoginForm.cs [Design]",
-              "RelativeToolTip": "Forms\\LoginForm.cs [Design]",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.cs [Design]*",
+              "RelativeToolTip": "Forms\\LoginForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T20:39:37.315Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PatientService.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\PatientService.cs",
-              "RelativeDocumentMoniker": "Services\\PatientService.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\PatientService.cs",
-              "RelativeToolTip": "Services\\PatientService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LoginForm.Designer.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.Designer.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\LoginForm.Designer.cs*",
+              "RelativeToolTip": "Forms\\LoginForm.Designer.cs*",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAGgAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T20:34:26.618Z",
+              "WhenOpened": "2025-11-22T19:16:55.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddPatientForm.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\AddPatientForm.cs",
+              "RelativeDocumentMoniker": "Forms\\AddPatientForm.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\AddPatientForm.cs",
+              "RelativeToolTip": "Forms\\AddPatientForm.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwDcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:22:31.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReceptionistForm.Designer.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\ReceptionistForm.Designer.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Forms\\ReceptionistForm.Designer.cs",
+              "RelativeToolTip": "Forms\\ReceptionistForm.Designer.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAYwNUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:43:08.917Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "DoctorService.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\DoctorService.cs",
-              "RelativeDocumentMoniker": "Services\\DoctorService.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\DoctorService.cs",
-              "RelativeToolTip": "Services\\DoctorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Title": "PatientService.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\PatientService.cs",
+              "RelativeDocumentMoniker": "Services\\PatientService.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\PatientService.cs",
+              "RelativeToolTip": "Services\\PatientService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T20:32:46.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T20:34:26.618Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
+              "Title": "DoctorService.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\DoctorService.cs",
+              "RelativeDocumentMoniker": "Services\\DoctorService.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\DoctorService.cs",
+              "RelativeToolTip": "Services\\DoctorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T20:32:46.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\AuthService.cs",
+              "DocumentMoniker": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Facultate_Luca\\SCD Proiect\\OnlineClinicClient\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Facultate_Luca\\OnlineClinic\\OnlineClinicClient\\Services\\AuthService.cs",
               "RelativeToolTip": "Services\\AuthService.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T19:43:35.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T19:43:35.105Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 61,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
