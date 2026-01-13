@@ -114,15 +114,9 @@ namespace OnlineClinicClient.Forms
         {
             // Open the AddAppointmentForm
             var form = new AddAppointmentForm(httpClient);
-            var result = form.ShowDialog();
+            form.ShowDialog();
 
-            // If the form was closed after saving, refresh appointments
-            if (result == DialogResult.OK)
-            {
-                await LoadAppointments();
-                statusLabel.Text = "Appointment added successfully!";
-                statusLabel.ForeColor = Color.DarkGreen;
-            }
+            await LoadAppointments();
         }
 
         private async void rescheduleBtn_Click(object sender, EventArgs e)

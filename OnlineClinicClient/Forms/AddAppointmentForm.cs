@@ -96,13 +96,24 @@ namespace OnlineClinicClient.Forms
                 return;
             }
 
+            var dateTime = datePicker.Value.Date + timePicker.Value.TimeOfDay;
+            var appointmentDate = new DateTimeOffset(dateTime);
+
             var appointmentDto = new AppointmentDto
             {
                 DoctorId = (int)doctorComboBox.SelectedValue,
                 PatientId = (int)patientComboBox.SelectedValue,
-                AppointmentDate = datePicker.Value.Date + timePicker.Value.TimeOfDay,
+                AppointmentDate = appointmentDate,
                 Price = price
             };
+
+            var selectedDateTime = datePicker.Value.Date + timePicker.Value.TimeOfDay;
+            if (selectedDateTime < DateTime.Now)
+            {
+                statusLabel.Text = "Appointment cannot be in the past.";
+                statusLabel.ForeColor = Color.DarkRed;
+                return;
+            }
 
             HttpResponseMessage response;
             if (existingAppointment == null)

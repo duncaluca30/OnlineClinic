@@ -10,7 +10,7 @@ namespace OnlineClinicClient.Models
     {
         public int DoctorId { get; set; }
         public int PatientId { get; set; }
-        public DateTime AppointmentDate { get; set; }
+        public DateTimeOffset AppointmentDate { get; set; }
         public decimal Price { get; set; }
     }
 }

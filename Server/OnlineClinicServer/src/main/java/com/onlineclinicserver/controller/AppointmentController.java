@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import com.onlineclinicserver.dto.AppointmentRequest;
 import org.springframework.http.ResponseEntity;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @RestController
@@ -52,9 +53,13 @@ public class AppointmentController {
         Doctor doctor = doctorRepository.findById(dto.getDoctorId())
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
+        if (dto.getAppointmentDate().isBefore(OffsetDateTime.now())) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
         existing.setPatient(patient);
         existing.setDoctor(doctor);
-        existing.setAppointmentDate(dto.getAppointmentDate());
+        existing.setAppointmentDate(dto.getAppointmentDate().toLocalDateTime());
         existing.setPrice(dto.getPrice());
 
         Appointment updated = appointmentRepository.save(existing);
@@ -69,10 +74,14 @@ public class AppointmentController {
         Doctor doctor = doctorRepository.findById(dto.getDoctorId())
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
+        if (dto.getAppointmentDate().isBefore(OffsetDateTime.now())) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
         Appointment appointment = new Appointment();
         appointment.setPatient(patient);
         appointment.setDoctor(doctor);
-        appointment.setAppointmentDate(dto.getAppointmentDate());
+        appointment.setAppointmentDate(dto.getAppointmentDate().toLocalDateTime());
         appointment.setPrice(dto.getPrice());
 
         Appointment saved = appointmentRepository.save(appointment);

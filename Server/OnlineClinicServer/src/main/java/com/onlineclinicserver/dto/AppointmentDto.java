@@ -1,11 +1,12 @@
 package com.onlineclinicserver.dto;
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 public class AppointmentDto {
     private Integer doctorId;
     private Integer patientId;
-    private LocalDateTime appointmentDate;
+    private OffsetDateTime appointmentDate;
     private BigDecimal price;
 
     // Getters and setters
@@ -25,11 +26,11 @@ public class AppointmentDto {
         this.patientId = patientId;
     }
 
-    public LocalDateTime getAppointmentDate() {
+    public OffsetDateTime getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(LocalDateTime appointmentDate) {
+    public void setAppointmentDate(OffsetDateTime appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
