@@ -1,30 +1,46 @@
 ﻿using OnlineClinicClient.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net.Http.Json;
+using System.Windows.Forms;
 
 namespace OnlineClinicClient.Forms
 {
     public partial class AddPatientForm : Form
     {
-        private readonly ReceptionistForm parentForm;
+        // We need references to BOTH types of potential parents
+        private readonly ReceptionistForm _receptionistParent;
+        private readonly AdminForm _adminParent;
+
         private readonly HttpClient httpClient;
         private Patient editingPatient;
+
+        // --- CONSTRUCTOR 1: Called by Receptionist ---
         public AddPatientForm(ReceptionistForm parent, HttpClient client, Patient patientToEdit = null)
         {
             InitializeComponent();
-            parentForm = parent;
-            httpClient = client;
-            editingPatient = patientToEdit;
+            _receptionistParent = parent; // Set Receptionist
+            _adminParent = null;          // Admin is null
 
+            httpClient = client;
+            SetupForm(patientToEdit);
+        }
+
+        // --- CONSTRUCTOR 2: Called by Admin (NEW) ---
+        public AddPatientForm(AdminForm parent, HttpClient client, Patient patientToEdit = null)
+        {
+            InitializeComponent();
+            _adminParent = parent;        // Set Admin
+            _receptionistParent = null;   // Receptionist is null
+
+            httpClient = client;
+            SetupForm(patientToEdit);
+        }
+
+        // Shared setup logic to avoid code duplication
+        private void SetupForm(Patient patientToEdit)
+        {
+            editingPatient = patientToEdit;
             if (editingPatient != null)
             {
                 this.Text = "Edit Patient";
@@ -47,7 +63,7 @@ namespace OnlineClinicClient.Forms
 
             if (editingPatient == null)
             {
-                // ADD mode
+                // --- CREATE ---
                 var newPatient = new Patient
                 {
                     Name = nameTextBox.Text,
@@ -60,7 +76,7 @@ namespace OnlineClinicClient.Forms
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Patient added successfully!");
-                    await parentForm.LoadPatients();
+                    await RefreshParent(); // Helper method to refresh whoever opened us
                     this.Close();
                 }
                 else
@@ -70,7 +86,7 @@ namespace OnlineClinicClient.Forms
             }
             else
             {
-                // EDIT mode
+                // --- EDIT ---
                 editingPatient.Name = nameTextBox.Text;
                 editingPatient.Email = emailTextBox.Text;
                 editingPatient.Phone = phoneTextBox.Text;
@@ -80,7 +96,7 @@ namespace OnlineClinicClient.Forms
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Patient updated successfully!");
-                    await parentForm.LoadPatients();
+                    await RefreshParent(); // Helper method
                     this.Close();
                 }
                 else
@@ -90,9 +106,19 @@ namespace OnlineClinicClient.Forms
             }
         }
 
-        private void AddPatientForm_Load(object sender, EventArgs e)
+        // Helper to refresh the correct parent form
+        private async System.Threading.Tasks.Task RefreshParent()
         {
-
+            if (_receptionistParent != null)
+            {
+                await _receptionistParent.LoadPatients();
+            }
+            else if (_adminParent != null)
+            {
+                await _adminParent.LoadPatients();
+            }
         }
+
+        private void AddPatientForm_Load(object sender, EventArgs e) { }
     }
 }

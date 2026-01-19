@@ -3,7 +3,7 @@
     <section class="hero">
       <h1>Your health, our priority</h1>
       <p>Book appointments with trusted professionals in just a few clicks.</p>
-      <router-link to="/book" class="cta-btn">Book Now</router-link>
+      <router-link to="/doctors" class="cta-button">Book Now</router-link>
     </section>
 
     <section class="gallery">
@@ -69,22 +69,26 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.cta-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #b03a48;
+.cta-button {
+  display: inline-block; /* Makes it a box, not just text */
+  background-color: #bd2121; /* Santa Elena Red */
   color: white;
+  text-decoration: none; /* Removes the underline */
+  padding: 0.8rem 2rem;
   border-radius: 8px;
-  border: 1px solid #e5b1b1;
-  text-decoration: none;
   font-weight: bold;
-  font-family: 'Segoe UI', 'Geneva', Verdana, sans-serif;
   font-size: 1.1rem;
+  margin-top: 2rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(189, 33, 33, 0.2);
+  font-family: 'Segoe UI', 'Geneva', Verdana, sans-serif;
 }
-.cta-btn:hover {
-  background-color: #9e3a43;
-  border-color: rgb(26, 26, 26);
+
+.cta-button:hover {
+  background-color: #a11b1b; /* Darker red on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 6px 12px rgba(189, 33, 33, 0.3);
 }
 
 .features {

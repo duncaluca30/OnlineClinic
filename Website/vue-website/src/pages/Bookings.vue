@@ -85,6 +85,7 @@ import { ref, onMounted } from 'vue'
 import axios from '../api/axios' 
 import { useRouter } from 'vue-router'
 import { useToast } from "vue-toastification";
+import Swal from 'sweetalert2'
 
 const appointments = ref<any[]>([])
 const loading = ref(true)
@@ -164,13 +165,34 @@ async function updatePrice() {
 }
 
 async function cancelAppointment(id: number) {
-  if(!confirm("Are you sure you want to cancel this appointment?")) return;
+  // 1. Show the "Are you sure?" dialog
+  const result = await Swal.fire({
+    title: 'Cancel Appointment?',
+    text: "You won't be able to recover this booking!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#bd2121', // Matches your website red
+    cancelButtonColor: '#888',
+    confirmButtonText: 'Yes, cancel it!',
+    cancelButtonText: 'Keep it'
+  })
+
+  // 2. If user clicked "Cancel" (Keep it), stop here.
+  if (!result.isConfirmed) return;
+
+  // 3. Proceed with deletion
   try {
     await axios.delete(`/api/appointments/${id}`)
+    
+    // Remove from the list immediately
     appointments.value = appointments.value.filter(app => app.id !== id)
-    toast.info("Appointment cancelled.",{ timeout: 3000 });
+    
+    // Show success notification (Toast)
+    toast.success("Appointment cancelled successfully.");
+    
   } catch (error) {
-    toast.error("Failed to cancel.",{ timeout: 3000 });
+    console.error(error);
+    toast.error("Failed to cancel appointment.");
   }
 }
 

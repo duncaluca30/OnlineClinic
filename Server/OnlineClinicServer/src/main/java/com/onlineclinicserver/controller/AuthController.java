@@ -9,6 +9,7 @@ import com.onlineclinicserver.repository.PatientRepository;
 import com.onlineclinicserver.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.password.PasswordEncoder; // Ensure this is imported
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -19,36 +20,38 @@ public class AuthController {
 
     private final UserRepository userRepository;
     private final PatientRepository patientRepository;
+    private final PasswordEncoder passwordEncoder; // Defined here
 
-
-    public AuthController(UserRepository userRepository, PatientRepository patientRepository) {
+    // 1. FIXED CONSTRUCTOR: Added PasswordEncoder parameter and assignment
+    public AuthController(UserRepository userRepository, PatientRepository patientRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.patientRepository = patientRepository;
+        this.passwordEncoder = passwordEncoder;
     }
-
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequest) {
         Optional<User> optionalUser = userRepository.findByUsername(loginRequest.getUsername());
 
-        if (optionalUser.isEmpty() || !optionalUser.get().getPassword().equals(loginRequest.getPassword())) {
+        // 2. FIXED LOGIN: Use passwordEncoder.matches() instead of .equals()
+        // Format: .matches(rawPassword, databaseHashedPassword)
+        if (optionalUser.isEmpty() || !passwordEncoder.matches(loginRequest.getPassword(), optionalUser.get().getPassword())) {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
 
         User user = optionalUser.get();
         String name = null;
-        Integer userId = user.getId(); // Default to User ID
+        Integer userId = user.getId();
 
-        // CRITICAL FIX: If they are a PATIENT, grab the specific PATIENT ID
+        // Preserving your custom ID logic
         if ("PATIENT".equals(user.getRole()) && user.getPatient() != null) {
             name = user.getPatient().getName();
-            userId = user.getPatient().getId(); // <--- This gets ID '6' for Marius
+            userId = user.getPatient().getId();
         } else if ("DOCTOR".equals(user.getRole()) && user.getDoctor() != null) {
             name = user.getDoctor().getName();
             userId = user.getDoctor().getId();
         }
 
-        // Pass the correct ID to the new constructor
         LoginResponseDTO response = new LoginResponseDTO(userId, user.getUsername(), user.getRole(), name);
 
         return ResponseEntity.ok(response);
@@ -56,10 +59,10 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequestDTO request) {
-        // Check if email already exists
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             return ResponseEntity.status(409).body("Email already registered");
         }
+
         // Create Patient
         Patient patient = new Patient();
         patient.setName(request.getName());
@@ -68,19 +71,20 @@ public class AuthController {
         patient.setDateOfBirth(dob);
         patient.setPhone(request.getPhone());
 
-        patientRepository.save(patient); // assuming you have this
+        patientRepository.save(patient);
 
         // Create User
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword()); // hash this!
+
+        // 3. FIXED REGISTER: Encode the password before saving
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+
         user.setRole("PATIENT");
-        user.setPatient(patient); // link the patient
+        user.setPatient(patient);
 
         userRepository.save(user);
 
         return ResponseEntity.ok("Registration successful");
     }
-
 }
-

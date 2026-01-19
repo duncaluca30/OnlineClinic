@@ -59,7 +59,8 @@ C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\bin\Debug\System.Text.Encoding
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\bin\Debug\System.Text.Json.xml
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.csproj.AssemblyReference.cache
-C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.exe.config
+C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddAppointmentForm.resources
+C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddPatientForm.resources
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.LoginForm.resources
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.ReceptionistForm.resources
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Properties.Resources.resources
@@ -68,5 +69,4 @@ C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.c
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineCl.946BA45C.Up2Date
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.exe
 C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.pdb
-C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddPatientForm.resources
-C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.Forms.AddAppointmentForm.resources
+C:\Facultate_Luca\OnlineClinic\OnlineClinicClient\obj\Debug\OnlineClinicClient.exe.config
