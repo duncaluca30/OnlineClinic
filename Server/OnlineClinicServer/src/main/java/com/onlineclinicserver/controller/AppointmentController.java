@@ -8,12 +8,14 @@ import com.onlineclinicserver.repository.AppointmentRepository;
 import com.onlineclinicserver.repository.DoctorRepository;
 import com.onlineclinicserver.repository.PatientRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-import com.onlineclinicserver.dto.AppointmentRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/appointments")
@@ -31,6 +33,33 @@ public class AppointmentController {
         this.patientRepository = patientRepository;
     }
 
+    // --- NEW ENDPOINT: Get Booked Slots ---
+    // This is called by the Frontend to grey out buttons
+    @GetMapping("/booked")
+    public ResponseEntity<List<String>> getBookedSlots(
+            @RequestParam Integer doctorId,
+            @RequestParam String date) { // Expects "yyyy-MM-dd"
+
+        // 1. Calculate the start (00:00:00) and end (23:59:59) of the requested day
+        LocalDate localDate = LocalDate.parse(date);
+        LocalDateTime startOfDay = localDate.atStartOfDay();
+        LocalDateTime endOfDay = startOfDay.plusDays(1).minusSeconds(1);
+
+        // 2. Fetch appointments from DB using the Repository method we just created
+        List<Appointment> appointments = appointmentRepository.findByDoctorIdAndAppointmentDateBetween(
+                doctorId, startOfDay, endOfDay
+        );
+
+        // 3. Extract just the time strings (e.g., converts full date to just "09:00", "14:30")
+        List<String> bookedTimes = appointments.stream()
+                .map(a -> a.getAppointmentDate().toLocalTime().toString().substring(0, 5))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(bookedTimes);
+    }
+
+    // --- Existing Endpoints below ---
+
     @GetMapping
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
@@ -40,6 +69,18 @@ public class AppointmentController {
     public Appointment getAppointmentById(@PathVariable Integer id) {
         return appointmentRepository.findById(id).orElse(null);
     }
+
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByPatient(@PathVariable Integer patientId) {
+        List<Appointment> appointments = appointmentRepository.findByPatientId(patientId);
+        return ResponseEntity.ok(appointments);
+    }
+    @GetMapping("/doctor/{doctorId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByDoctor(@PathVariable Integer doctorId) {
+        List<Appointment> appointments = appointmentRepository.findByDoctorId(doctorId);
+        return ResponseEntity.ok(appointments);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Appointment> updateAppointment(
             @PathVariable Integer id,
@@ -66,7 +107,6 @@ public class AppointmentController {
         return ResponseEntity.ok(updated);
     }
 
-    // --- Create Appointment using IDs ---
     @PostMapping
     public ResponseEntity<Appointment> createAppointment(@RequestBody AppointmentDto dto) {
         Patient patient = patientRepository.findById(dto.getPatientId())

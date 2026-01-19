@@ -30,24 +30,100 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useToast } from "vue-toastification";
+import { useRouter } from 'vue-router'; // 1. Import Router
 
 const activeTab = ref('login')
+const toast = useToast();
+const router = useRouter(); // 2. Initialize Router
 
 const loginUsername = ref('')
 const loginPassword = ref('')
 
+// ... (keep your register variables and isAdult function here) ...
 const registerName = ref('')
 const registerEmail = ref('')
 const registerPassword = ref('')
 const registerDob = ref('')
 const registerPhone = ref('')
 
-function handleLogin() {
-  console.log('Logging in with', loginUsername.value, loginPassword.value)
+function isAdult(dateString) {
+  const dob = new Date(dateString)
+  const today = new Date()
+  let age = today.getFullYear() - dob.getFullYear()
+  const monthDiff = today.getMonth() - dob.getMonth()
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+    age--
+  }
+  return age
 }
 
-function handleRegister() {
-  console.log('Registering with', registerName.value, registerEmail.value, registerPassword.value, registerDob.value, registerPhone.value)
+async function handleLogin() {
+  try {
+    const response = await fetch("http://localhost:8080/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: loginUsername.value,
+        password: loginPassword.value
+      })
+    })
+
+    if (!response.ok) {
+      const error = await response.text()
+      toast.error(error, { timeout: 3000 })
+      return
+    }
+
+    const user = await response.json()
+    localStorage.setItem("user", JSON.stringify(user))
+
+    // Show success message
+    toast.success("Login successful!", { timeout: 3000 })
+
+    // 3. FIXED: Use router.push instead of window.location.href
+    // This changes the page without killing the popup
+    router.push('/') 
+
+  } catch (err) {
+    console.error(err)
+    toast.error("Something went wrong while logging in.", { timeout: 3000 })
+  }
+}
+
+async function handleRegister() {
+  // ... (Your existing register logic is fine) ...
+  if (isAdult(registerDob.value) < 18) {
+    toast.info("You must be at least 18 years old to register.", { timeout: 3000 })
+    return
+  }
+
+  try {
+    const response = await fetch("http://localhost:8080/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: registerName.value,
+        username: registerEmail.value,
+        password: registerPassword.value,
+        dob: registerDob.value,
+        phone: registerPhone.value
+      })
+    })
+
+    if (!response.ok) {
+      const error = await response.text()
+      toast.error(error, { timeout: 3000 })
+      return
+    }
+
+    toast.success("Registration successful!", { timeout: 3000 })
+    // Optional: Switch to login tab automatically after success
+    activeTab.value = 'login' 
+  } catch (err) {
+    console.error(err)
+    toast.error("Something went wrong while registering.", { timeout: 3000 })
+  }
 }
 </script>
 

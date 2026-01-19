@@ -2,10 +2,12 @@ package com.onlineclinicserver.controller;
 
 import com.onlineclinicserver.model.Doctor;
 import com.onlineclinicserver.repository.DoctorRepository;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/doctors")
@@ -39,8 +41,31 @@ public class DoctorController {
             doctor.setSpecialty(doctorDetails.getSpecialty());
             doctor.setPhone(doctorDetails.getPhone());
             doctor.setEmail(doctorDetails.getEmail());
+            // You can also update price here if you want the main update to handle it too
+            if (doctorDetails.getPrice() != null) {
+                doctor.setPrice(doctorDetails.getPrice());
+            }
             return doctorRepository.save(doctor);
         }).orElse(null);
+    }
+
+    // --- NEW ENDPOINT: Update Price Only ---
+    // Used by the "Manage My Profile" section in the frontend
+    @PutMapping("/{id}/price")
+    public ResponseEntity<?> updatePrice(@PathVariable Integer id, @RequestBody Map<String, BigDecimal> payload) {
+        BigDecimal newPrice = payload.get("price");
+
+        if (newPrice == null) {
+            return ResponseEntity.badRequest().body("Price is required");
+        }
+
+        return doctorRepository.findById(id)
+                .map(doctor -> {
+                    doctor.setPrice(newPrice);
+                    doctorRepository.save(doctor);
+                    return ResponseEntity.ok("Price updated successfully");
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")

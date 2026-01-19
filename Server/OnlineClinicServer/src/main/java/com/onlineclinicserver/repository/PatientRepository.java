@@ -3,7 +3,8 @@ package com.onlineclinicserver.repository;
 import com.onlineclinicserver.model.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
-    // Example custom query:
-    // List<Patient> findByNameContaining(String name);
+    Optional<Patient> findByEmail(String email);
 }

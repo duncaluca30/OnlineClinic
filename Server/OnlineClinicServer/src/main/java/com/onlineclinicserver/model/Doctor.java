@@ -1,6 +1,7 @@
 package com.onlineclinicserver.model;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "doctors")
@@ -23,14 +24,18 @@ public class Doctor {
     @Column(length = 100)
     private String email;
 
+    @Column
+    private BigDecimal price;
+
     // --- Constructors ---
     public Doctor() {}
 
-    public Doctor(String name, String specialty, String phone, String email) {
+    public Doctor(String name, String specialty, String phone, String email, BigDecimal price) {
         this.name = name;
         this.specialty = specialty;
         this.phone = phone;
         this.email = email;
+        this.price = price;
     }
 
     // --- Getters and Setters ---
@@ -73,4 +78,7 @@ public class Doctor {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public BigDecimal getPrice() {return price;}
+    public void setPrice(BigDecimal price) {this.price = price;}
 }

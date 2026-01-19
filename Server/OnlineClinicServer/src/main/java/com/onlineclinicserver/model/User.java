@@ -21,11 +21,11 @@ public class User {
     @Column(nullable = false)
     private String role;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
     private Doctor doctor;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
     private Patient patient;
 
